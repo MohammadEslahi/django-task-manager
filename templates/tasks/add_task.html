@@ -1,0 +1,7 @@
+
+<form action="/tasks/add/" method="post">
+    {% csrf_token %}
+    <label for="title">Task title:</label>
+    <input type="text" id="title" name="title" required>
+    <button type="submit">Add Task</button>
+</form>

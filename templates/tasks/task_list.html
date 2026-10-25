@@ -1,0 +1,15 @@
+<h1>My Tasks</h1>
+
+{% for task in tasks %}
+    <div>
+        <span>{{ task.title }}</span>
+
+        <form action="{% url 'delete_task' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="task_id" value="{{ task.id }}">
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+{% empty %}
+    <p>No tasks yet!</p>
+{% endfor %}
